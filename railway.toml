@@ -1,4 +1,0 @@
-[deploy]
-
-[deploy.variables]
-RAILPACK_PHP_VERSION = "8.3"
