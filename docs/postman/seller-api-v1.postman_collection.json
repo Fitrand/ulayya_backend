@@ -1,0 +1,262 @@
+{
+  "info": {
+    "_postman_id": "a72c9ac2-c9f8-4f02-8ab4-4f65a5f91418",
+    "name": "Ulayya Seller API v1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"admin@ulayya.test\",\n  \"password\": \"password\"\n}"
+        },
+        "url": "{{base_url}}/api/v1/auth/login"
+      }
+    },
+    {
+      "name": "Seller Customers - List",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": "{{base_url}}/api/v1/seller/customers"
+      }
+    },
+    {
+      "name": "Seller Customers - Create",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Customer Baru\",\n  \"email\": \"customer.baru@example.com\",\n  \"phone\": \"08123456789\",\n  \"password\": \"password123\"\n}"
+        },
+        "url": "{{base_url}}/api/v1/seller/customers"
+      }
+    },
+    {
+      "name": "Seller Customers - Update",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Customer Update\",\n  \"email\": \"customer.update@example.com\",\n  \"phone\": \"08122223333\"\n}"
+        },
+        "url": "{{base_url}}/api/v1/seller/customers/{{customer_id}}"
+      }
+    },
+    {
+      "name": "Seller Customers - Delete",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": "{{base_url}}/api/v1/seller/customers/{{customer_id}}"
+      }
+    },
+    {
+      "name": "Seller Reports - CRUD",
+      "item": [
+        {
+          "name": "List Reports",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/api/v1/seller/reports"
+          }
+        },
+        {
+          "name": "Create Report Note",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Laporan Mingguan\",\n  \"period\": \"week\",\n  \"content\": \"Penjualan naik 12% dibanding minggu lalu.\"\n}"
+            },
+            "url": "{{base_url}}/api/v1/seller/reports"
+          }
+        },
+        {
+          "name": "Update Report Note",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Laporan Mingguan Update\",\n  \"period\": \"week\",\n  \"content\": \"Update insight mingguan terbaru.\"\n}"
+            },
+            "url": "{{base_url}}/api/v1/seller/reports/{{report_id}}"
+          }
+        },
+        {
+          "name": "Delete Report Note",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/api/v1/seller/reports/{{report_id}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Seller Analytics - CRUD",
+      "item": [
+        {
+          "name": "List Insights",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/api/v1/seller/analytics"
+          }
+        },
+        {
+          "name": "Create Insight",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"AOV Bulanan\",\n  \"metric\": \"average_order_value\",\n  \"value\": 185000,\n  \"trend\": \"up\",\n  \"note\": \"Meningkat setelah promo bundling.\"\n}"
+            },
+            "url": "{{base_url}}/api/v1/seller/analytics"
+          }
+        },
+        {
+          "name": "Update Insight",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"AOV Bulanan (Update)\",\n  \"metric\": \"average_order_value\",\n  \"value\": 190000,\n  \"trend\": \"up\",\n  \"note\": \"Update per 7 Mei.\"\n}"
+            },
+            "url": "{{base_url}}/api/v1/seller/analytics/{{insight_id}}"
+          }
+        },
+        {
+          "name": "Delete Insight",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/api/v1/seller/analytics/{{insight_id}}"
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "customer_id",
+      "value": "1"
+    },
+    {
+      "key": "report_id",
+      "value": "1"
+    },
+    {
+      "key": "insight_id",
+      "value": "1"
+    }
+  ]
+}
